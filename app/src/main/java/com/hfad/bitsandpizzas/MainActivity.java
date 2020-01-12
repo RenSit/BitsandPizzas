@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 // я сделал этот коммент на домашнем компе!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! для теста гитхаба
+//отлично, всё сработало, это коммент с рабочего компа!!!!!!!!!!!!!!!!!!!! для теста гитхаба
 public class MainActivity extends AppCompatActivity {
 
     private ShareActionProvider shareActionProvider;
