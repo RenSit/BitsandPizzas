@@ -1,6 +1,8 @@
 package com.hfad.bitsandpizzas;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -14,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 // я сделал этот коммент на домашнем компе!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! для теста гитхаба
 //отлично, всё сработало, это коммент с рабочего компа!!!!!!!!!!!!!!!!!!!! для теста гитхаба
+//страница 551
 public class MainActivity extends AppCompatActivity {
 
     private ShareActionProvider shareActionProvider;
@@ -30,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
                 new SectionsPagerAdapter(getSupportFragmentManager());
         ViewPager pager = findViewById(R.id.pager);
         pager.setAdapter(pagerAdapter);
+
+        //Связывание ViewPager с TabLayout
+        TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(pager);
     }
 
     @Override
@@ -84,6 +91,22 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             return 4;
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch(position){
+                case 0:
+                    return getResources().getText(R.string.home_tab);
+                case 1:
+                    return getResources().getText(R.string.pizza_tab);
+                case 2:
+                    return getResources().getText(R.string.pasta_tab);
+                case 3:
+                    return getResources().getText(R.string.store_tab);
+            }
+            return null;
         }
     }
 }
